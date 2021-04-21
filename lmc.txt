@@ -1,0 +1,3 @@
+INP
+STA op
+op DAT 0
