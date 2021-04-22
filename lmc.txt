@@ -23,13 +23,18 @@ is_three LDA three
 is_two  LDA two
         OUT
         HLT
-is_one  LDA one
+is_one  INP
+        STA n1
+        INP
+        STA n2
+        ADD n1
         OUT
         HLT
+n1      DAT 0
+n2      DAT 0
 op      DAT 0
 zero    DAT 0
 one     DAT 1
 two     DAT 2
 three   DAT 3
 four    DAT 4
-
