@@ -20,7 +20,12 @@ is_four LDA four
 is_three LDA three
         OUT
         HLT
-is_two  LDA two
+is_two  INP
+        STA n1
+        INP
+        STA n2
+        LDA n1
+        SUB n2
         OUT
         HLT
 is_one  INP
