@@ -11,19 +11,25 @@
         LDA op
         sub four
         BRZ is_four
-        LDA 0
+        LDA zero
         OUT
+        HLT
 is_four LDA four 
         OUT
+        HLT
 is_three LDA three
         OUT
+        HLT
 is_two  LDA two
         OUT
+        HLT
 is_one  LDA one
         OUT
+        HLT
 op      DAT 0
 zero    DAT 0
 one     DAT 1
 two     DAT 2
 three   DAT 3
 four    DAT 4
+
