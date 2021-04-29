@@ -1,3 +1,5 @@
+        LDA zero
+        STA ans
         INP
         STA op
         sub one
@@ -17,7 +19,19 @@
 is_four LDA four 
         OUT
         HLT
-is_three LDA three
+is_three INP
+        STA n1
+        INP
+        STA n2
+loop    LDA ans
+        ADD n1
+        STA ans
+        LDA n2
+        SUB one
+        STA n2
+        BRP loop
+        LDA ans
+        SUB n1
         OUT
         HLT
 is_two  INP
@@ -35,6 +49,7 @@ is_one  INP
         ADD n1
         OUT
         HLT
+ans     DAT 0
 n1      DAT 0
 n2      DAT 0
 op      DAT 0
@@ -42,4 +57,4 @@ zero    DAT 0
 one     DAT 1
 two     DAT 2
 three   DAT 3
-four    DAT 4
+four    DAT 4 
