@@ -16,8 +16,44 @@
         LDA zero
         OUT
         HLT
-is_four LDA four 
+is_four INP
+        STA n1
+        STA new_dividend
+        INP
+        STA n2
+        SUB n1
+        BRP n2_minus_n1_pos
+        BRA n2_zero
+n2_minus_n1_pos LDA zero
         OUT
+        LDA n1
+        OUT
+        HLT
+n2_zero LDA n2
+        BRZ undefined
+        BRA divide_loop
+        HLT
+divide_loop LDA new_dividend
+        SUB n2
+        STA new_dividend
+        BRP update_mod
+        LDA div
+        OUT
+        LDA mod
+        OUT
+        LDA zero
+        STA mod
+        LDA zero
+        STA div
+        HLT
+update_mod LDA new_dividend
+        STA mod
+        LDA div
+        ADD one
+        STA div
+        BRA divide_loop
+undefined LDA zero
+        OUT 
         HLT
 is_three INP
         STA n1
@@ -50,6 +86,9 @@ is_one  INP
         OUT
         HLT
 ans     DAT 0
+mod     DAT 0
+div     DAT 0
+new_dividend DAT 0
 n1      DAT 0
 n2      DAT 0
 op      DAT 0
@@ -57,4 +96,4 @@ zero    DAT 0
 one     DAT 1
 two     DAT 2
 three   DAT 3
-four    DAT 4 
+four    DAT 4
